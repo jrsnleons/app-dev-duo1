@@ -16,7 +16,7 @@ graph LR;
 Sequence of Pages starting from SignUp
 ```mermaid
 graph LR;
-    SignUp->Login;
+    SignUp-->Login;
 ```
 
 Page Descriptions
