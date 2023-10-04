@@ -1,9 +1,10 @@
+import { useTheme } from "../utils/hooks";
 
 export default function LoginLayout({children}) {
+  const {theme} = useTheme();
   return (
-    <div className="flex w-screen h-screen">
-      <div>LoginLayout</div>
-      <div>
+    <div style={theme} className="flex w-screen h-screen">
+      <div className="flex grow">
         { children }
       </div>
     </div>

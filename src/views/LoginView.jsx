@@ -1,8 +1,10 @@
-import { useTheme } from "../utils/hooks"
+import {LoginLayout} from "../layouts";
 
 export default function LoginView() {
-  const {theme} = useTheme();
   return (
-    <div style={theme} className="flex w-screen h-screen">LoginView</div>
+    <LoginLayout>
+      <div className="flex grow h-screen items-center justify-center">
+      </div>
+    </LoginLayout>
   )
 }
