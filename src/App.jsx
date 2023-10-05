@@ -1,11 +1,9 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import {HomeView, LoginView, SignUpView} from './views';
-import {ThemeProvider} from './utils/providers/';
 
 function App() {
   return (
-    <ThemeProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LoginView/>}/>
@@ -14,7 +12,6 @@ function App() {
           <Route path="/home" element={<HomeView/>}/>
         </Routes>
       </BrowserRouter>
-    </ThemeProvider>
   )
 }
 

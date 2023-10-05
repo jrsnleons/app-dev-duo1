@@ -1,10 +1,10 @@
-import {useTheme} from '../utils/hooks';
+import { HomeLayout } from '../layouts';
 
 export default function HomeView() {
-  const {theme} = useTheme();
-  console.log(theme);
   return (
-    <div style={theme} className="flex w-screen h-screen">HomeView</div>
+    <HomeLayout>
+      <div className="flex grow items-center justify-center">HomeView</div>
+    </HomeLayout>
   )
 }
 
