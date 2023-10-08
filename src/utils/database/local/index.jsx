@@ -1,1 +1,0 @@
-export {setItemLocal, getItemLocal} from './localStorage';
