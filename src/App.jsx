@@ -1,6 +1,6 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import {HomeView, LoginView, SignUpView, DashboardView} from './views';
+import {HomeView, LoginView, SignUpView, DashboardView, ErrorView} from './views';
 import { ThemeProvider } from 'styled-components';
 import {GlobalStyle, darkTheme} from './themes';
 
@@ -15,6 +15,7 @@ function App() {
             <Route path="/signup" element={<SignUpView/>}/>
             <Route path="/home" element={<HomeView/>}/>
             <Route path="/dashboard" element={<DashboardView/>}/>
+            <Route path="/error" element={<ErrorView/>}/>
           </Routes>
         </ThemeProvider>
       </BrowserRouter>
