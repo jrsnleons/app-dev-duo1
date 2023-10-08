@@ -4,6 +4,15 @@ Criteria of 3 pages:
 - Homepage/dashboard/timeline
 - Interactive page where we could interact (like a post with comment threads etc...)
 
+To-Do:
+- [ ] Authentication/Context
+- [ ] Unique Routes for each user
+- [ ] Proper Theming
+- [ ] Database Connection
+- [ ] Database Functions
+- [ ] Forms w/ Validation
+- [ ] UI design of all pages
+
  App Flow
 ---
 Sequence of Pages starting from Login
