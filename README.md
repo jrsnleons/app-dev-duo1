@@ -6,12 +6,22 @@ Criteria of 3 pages:
 
 To-Do:
 - [ ] Authentication/Context
-- [ ] Unique Routes for each user
+    - [ ] Token/ID
+    - [ ] Unique Routes for each user
 - [ ] Proper Theming
-- [ ] Database Connection
-- [ ] Database Functions
+    - [ ] Theme Switcher
 - [ ] Forms w/ Validation
 - [ ] UI design of all pages
+    - [x] Login (initial)
+    - [ ] Signup
+    - [ ] Dashboard
+    - [ ] Home
+- [ ] Express Backend
+    - [ ] Database Connection
+    - [ ] Database Functions
+- [ ] Database Setup
+    - [ ] Database Schema
+- [ ] Testing
 
  App Flow
 ---

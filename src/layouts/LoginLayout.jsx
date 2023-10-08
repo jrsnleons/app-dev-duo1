@@ -1,3 +1,4 @@
+import {StyledLink} from '../components/misc';
 
 export default function LoginLayout({children}) {
   return (
@@ -8,7 +9,8 @@ export default function LoginLayout({children}) {
           { children }
         </div>
         <div className="font-light text-sm justify-center flex">
-          Forgot Password?
+          <p>No Account? &nbsp;</p>
+          <StyledLink to="/signup">Sign up Now!</StyledLink>
         </div>
       </div>
     </div>
