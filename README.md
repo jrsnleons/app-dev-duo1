@@ -23,6 +23,9 @@ To-Do:
     - [ ] Database Schema
 - [ ] Testing
 
+Bugs:
+- [ ] Fix overflow issues
+
  App Flow
 ---
 Sequence of Pages starting from Login
