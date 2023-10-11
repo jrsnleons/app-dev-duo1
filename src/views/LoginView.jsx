@@ -1,11 +1,11 @@
 import {LoginLayout} from "../layouts";
-import { StyledSubmitButton, StyledTextInput } from "../components/forms";
+import { StyledPasswordInput, StyledSubmitButton, StyledTextInput } from "../components/forms";
 
 export default function LoginView() {
   return (
     <LoginLayout>
-      <StyledTextInput type="text" placeholder="Username"/>
-      <StyledTextInput type="password" placeholder="Password"/>
+      <StyledTextInput type="text" placeholder="Username" className="w-full"/>
+      <StyledPasswordInput />
       <StyledSubmitButton className="w-full">
         Submit
       </StyledSubmitButton>

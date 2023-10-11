@@ -15,7 +15,7 @@ function App() {
             <Route path="/signup" element={<SignUpView/>}/>
             <Route path="/home" element={<HomeView/>}/>
             <Route path="/dashboard" element={<DashboardView/>}/>
-            <Route path="/error" element={<ErrorView/>}/>
+            <Route path="*" element={<ErrorView/>}/>
           </Routes>
         </ThemeProvider>
       </BrowserRouter>
