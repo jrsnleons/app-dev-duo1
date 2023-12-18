@@ -1,6 +1,7 @@
+import StyledSideBarButton from "./SideBarButton.styled";
 
-export default function SideBarButton() {
+export default function SideBarButton({children}) {
   return (
-    <div className="flex">SideBarButton</div>
+    <StyledSideBarButton> { children } </StyledSideBarButton>
   )
 }
