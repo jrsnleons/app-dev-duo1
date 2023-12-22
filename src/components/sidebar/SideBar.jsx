@@ -1,6 +1,6 @@
 import logo from '../../assets/logo.svg'
 import StyledSideBarButton from './SideBarButton.styled'
-import {FaHouse, FaMagnifyingGlass, FaHeart, FaBars} from 'react-icons/fa6';
+import {FaHouse, FaHeart, FaBars} from 'react-icons/fa6';
 import {IoPerson} from 'react-icons/io5';
 import { UserAuth } from '../../utils/contexts/AuthContext';
 import { useState } from 'react';
@@ -35,9 +35,6 @@ export default function SideBar() {
       <div className="flex flex-col justify-center items-center lg:gap-6 md:gap-6 sm:gap-1" >
         <StyledSideBarButton to={"/home"}>
           <FaHouse size={30}/>
-        </StyledSideBarButton>
-        <StyledSideBarButton to={"/search"}>
-            <FaMagnifyingGlass size={30}/>
         </StyledSideBarButton>
         <StyledSideBarButton>
             <FaHeart size={30}/>
