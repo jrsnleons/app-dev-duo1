@@ -5,14 +5,10 @@ import {IoPerson} from 'react-icons/io5';
 import { UserAuth } from '../../utils/contexts/AuthContext';
 
 export default function SideBar() {
-  const {logOut, user} = UserAuth();
+  const {logOut} = UserAuth();
 
-  const handleHomeClick = () => {
+  const handleLogoutClick = () => {
     logOut();
-  }
-
-  const handleSearchClick = () => {
-    console.log(user);
   }
 
   return (
@@ -26,10 +22,10 @@ export default function SideBar() {
       </div>
 
       <div className="flex flex-col justify-center items-center lg:gap-6 md:gap-6 sm:gap-1" >
-        <StyledSideBarButton onClick={handleHomeClick}>
+        <StyledSideBarButton to={"/home"}>
           <FaHouse size={30}/>
         </StyledSideBarButton>
-        <StyledSideBarButton onClick={handleSearchClick}>
+        <StyledSideBarButton>
             <FaMagnifyingGlass size={30}/>
         </StyledSideBarButton>
         <StyledSideBarButton>
@@ -43,7 +39,7 @@ export default function SideBar() {
         </StyledSideBarButton>
       </div>
       <div className='pb-1 justify-center items-center flex'>
-        <StyledSideBarButton>
+        <StyledSideBarButton onClick={handleLogoutClick}>
             <FaBars size={30}/>
         </StyledSideBarButton>
       </div>
