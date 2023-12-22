@@ -6,7 +6,6 @@ const StyledButton = styled.button`
     background-color: ${({theme}) => theme.tertiaryColor};
     border-radius: 21px;
     color: #fff;
-    margin-top: 2em;
 `
 
 export default StyledButton;

@@ -7,5 +7,5 @@ export default function Avatar({src, size}) {
 }
 
 Avatar.defaultProps = {
-  size: 43
+  size: 46
 }

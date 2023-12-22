@@ -25,7 +25,7 @@ export default function LoginView() {
 
   return (
     <LoginLayout>
-      <StyledButton onClick={handleClick}>
+      <StyledButton onClick={handleClick} className="mt-6">
         <div className="flex p-2 flex-row gap-3 justify-center items-center">
           <FaGoogle size={25} />
           <span>
