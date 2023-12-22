@@ -12,13 +12,14 @@ const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
+  const [isNew, setIsNew] = useState(true);
 
   const googleSignIn = async () => {
     try {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
       const {isNewUser} = getAdditionalUserInfo(result);
-      console.log(isNewUser);
+      setIsNew(isNewUser);
     } catch (err){
       console.log(err);
     }
@@ -38,7 +39,7 @@ export const AuthContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ googleSignIn, user, logOut }}>
+    <AuthContext.Provider value={{ googleSignIn, user, logOut, isNew }}>
       {children}
     </AuthContext.Provider>
   );

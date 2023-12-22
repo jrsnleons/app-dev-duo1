@@ -12,7 +12,7 @@ export default function SideBar() {
   }
 
   return (
-    <div className="sm:w-20 md:w-20 lg:w-20 h-screen flex flex-col justify-between p-4 lg:mr-40">
+    <div className="sm:w-20 md:w-20 lg:w-20 h-screen flex flex-col justify-between p-4 lg:mr-80">
       <div className="pt-2 self-start flex w-full justify-center">
         <StyledSideBarButton>
           <div className="flex flex-row items-center">

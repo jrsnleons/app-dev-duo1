@@ -1,31 +1,41 @@
-export default function Post({name,handle,content,profPicURL}) {
+import { FaRegHeart } from "react-icons/fa6"
+import {TbMessageCircle} from 'react-icons/tb';
+import { StyledLink } from "../misc";
+import {Avatar} from "../misc";
+
+export default function Post({name,content,profPicURL,image=null}) {
     return (
-        <div className="mx-10 my-2 p-4 bg-neutral-950 rounded-lg shadow-lg ">
-            <div className="pl-0 p-2">
-                <div className="flex flex-row">
-                    <div className="rounded-full">
-                        <img src={profPicURL} alt="" className="rounded-full border border-gray-700 w-12"/>
-                    </div>
-                    <div className="flex text-xs flex-col pl-3 justify-center">
-                        <b>{name}</b> 
-                        <span className="text-slate-400 text-xs"> @{handle}</span>
+            <div className="pb-6 p-0">
+                <div className="flex flex-row w-full">
+                    <Avatar src={profPicURL} />
+                    <div>
+                        <div className="flex text-xs flex-col pl-3">
+                            <span className="text-sm pb-px">
+                                <b>{name}</b> 
+                            </span>
+                        </div>
+                        <div className="pl-3">
+                            <p className="text-base">{content}</p>
+                        </div>
+                        {
+                            image!==null ? <img className="w-full h-fit rounded-lg mt-2 ml-3" src={image} /> : null 
+                        }
+                        <div className="flex pl-3 justify items-center pt-3 gap-4 opacity-30">
+                            <StyledLink onClick={() => {}}>
+                                <FaRegHeart size={20} />    
+                            </StyledLink> 
+                            <StyledLink onClick={() => {}}>
+                                <TbMessageCircle size={22} />    
+                            </StyledLink> 
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="pl-0 pt-2">
-                <p className="text-base">{content}</p>
+            <hr className="h-px mt-6 bg-gray-700 opacity-30 border-0"></hr>
             </div>
 
-            <hr className="h-px mt-3 bg-gray-700 opacity-30 border-0"></hr>
-            <div className="flex justify ">
-                <button className="bg-twitter text-xs text-slate-500 rounded-full py-2 px-4 hover:text-violet-600">
-                    Reply
-                </button>
-                <button className="bg-twitter text-xs text-slate-500 rounded-full py-2 px-4 hover:text-violet-600">
-                    Like
-                </button>
-            </div>
-        
-        </div>
     )
+}
+
+Post.defaultProps = {
+    image: null
 }

@@ -4,7 +4,6 @@ import { HomeLayout } from '../layouts';
 export default function HomeView() {
   return (
     <HomeLayout>
-      <div className="flex grow flex-col overflow-scroll" >
         <Post 
           name="Jerson Leones"
           handle="19103036"
@@ -40,15 +39,16 @@ export default function HomeView() {
             handle="8234598"
             content="in love with you..." 
           profPicURL="https://randomuser.me/api/portraits/women/81.jpg"
+          image="https://media2.giphy.com/media/vgPptRu3quuHYFQ1GH/giphy.gif"
           />  
           <Post 
             name="Joel Jayme"
             handle="8234598"
             content="in love with you..." 
           profPicURL="https://randomuser.me/api/portraits/women/81.jpg"
+          image="https://i.gifer.com/origin/b8/b842107e63c67d5674d17e0f576274fa.gif"
           />  
-      </div>
-    </HomeLayout>
+     </HomeLayout>
   )
 }
 
