@@ -1,8 +1,5 @@
 export default function Post(props) {
     const {name, handle, content} = props;
-    
-
-
     return (
         <div className="mx-10 my-2 p-4  bg-neutral-950 rounded-lg shadow-lg ">
             <div className="pl-0 p-2">
