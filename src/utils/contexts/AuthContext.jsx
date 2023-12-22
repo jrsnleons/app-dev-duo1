@@ -14,14 +14,18 @@ export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
 
   const googleSignIn = async () => {
-    const provider = new GoogleAuthProvider();
-    const result = await signInWithPopup(auth, provider);
-    const {isNewUser} = getAdditionalUserInfo(result);
-    console.log(isNewUser);
+    try {
+      const provider = new GoogleAuthProvider();
+      const result = await signInWithPopup(auth, provider);
+      const {isNewUser} = getAdditionalUserInfo(result);
+      console.log(isNewUser);
+    } catch (err){
+      console.log(err);
+    }
   };
 
-  const logOut = async () => {
-    await signOut(auth);
+  const logOut = () => {
+    signOut(auth);
   }
 
   useEffect(() => {

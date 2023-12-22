@@ -5,10 +5,14 @@ import {IoPerson} from 'react-icons/io5';
 import { UserAuth } from '../../utils/contexts/AuthContext';
 
 export default function SideBar() {
-  const {logOut} = UserAuth();
+  const {logOut, user} = UserAuth();
 
-  const handleHomeClick = async () => {
-    await logOut();
+  const handleHomeClick = () => {
+    logOut();
+  }
+
+  const handleSearchClick = () => {
+    console.log(user);
   }
 
   return (
@@ -25,7 +29,7 @@ export default function SideBar() {
         <StyledSideBarButton onClick={handleHomeClick}>
           <FaHouse size={30}/>
         </StyledSideBarButton>
-        <StyledSideBarButton>
+        <StyledSideBarButton onClick={handleSearchClick}>
             <FaMagnifyingGlass size={30}/>
         </StyledSideBarButton>
         <StyledSideBarButton>

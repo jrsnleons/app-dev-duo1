@@ -1,6 +1,7 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import {HomeView, LoginView, ErrorView} from './views';
+import {Protected} from './components/utils';
 import { ThemeProvider } from 'styled-components';
 import {GlobalStyle, darkTheme} from './themes';
 import { AuthContextProvider } from './utils/contexts/';
@@ -14,7 +15,7 @@ function App() {
             <Routes>
               <Route path="/" element={<LoginView/>}/>
               <Route path="/login" element={<LoginView/>}/>
-              <Route path="/home" element={<HomeView/>}/>
+              <Route path="/home" element={<Protected><HomeView/></Protected>}/>
               <Route path="*" element={<ErrorView/>}/>
             </Routes>
           </ThemeProvider>
