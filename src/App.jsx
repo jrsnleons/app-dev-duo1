@@ -1,6 +1,6 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import {HomeView, LoginView, DashboardView, ErrorView} from './views';
+import {HomeView, LoginView, ErrorView} from './views';
 import { ThemeProvider } from 'styled-components';
 import {GlobalStyle, darkTheme} from './themes';
 import { AuthContextProvider } from './utils/contexts/';
@@ -15,7 +15,6 @@ function App() {
               <Route path="/" element={<LoginView/>}/>
               <Route path="/login" element={<LoginView/>}/>
               <Route path="/home" element={<HomeView/>}/>
-              <Route path="/dashboard" element={<DashboardView/>}/>
               <Route path="*" element={<ErrorView/>}/>
             </Routes>
           </ThemeProvider>
