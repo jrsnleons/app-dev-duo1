@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { Post } from '../components/post';
+import { Post, PostFieldInput } from '../components/post';
 import { HomeLayout } from '../layouts';
 
 export default function HomeView() {
   const [idx, setIdx] = useState(0);
   const items = [
-    <HomeLayout key="0" idx={idx} setIdx={setIdx}>
+    <HomeLayout key="For You" idx={idx} setIdx={setIdx} header={<PostFieldInput/>}>
         <Post 
           name="Jerson Leones"
           handle="19103036"
@@ -13,7 +13,7 @@ export default function HomeView() {
           profPicURL="https://randomuser.me/api/portraits/women/81.jpg"
         />
     </HomeLayout>,
-    <HomeLayout key="1" idx={idx} setIdx={setIdx}>
+    <HomeLayout key="Announcements" idx={idx} setIdx={setIdx}>
         <Post 
           name="Ivan Leopoldo"
           handle="19223423"
@@ -21,7 +21,7 @@ export default function HomeView() {
         profPicURL="https://randomuser.me/api/portraits/women/81.jpg"
         /> 
     </HomeLayout>,
-    <HomeLayout key="2" idx={idx} setIdx={setIdx}>
+    <HomeLayout key="Pages" idx={idx} setIdx={setIdx}>
         <Post 
           name="Ivan Leopoldo"
           handle="19223423"
