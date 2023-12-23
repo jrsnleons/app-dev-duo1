@@ -1,95 +1,57 @@
-Criteria of 3 pages:
----
+# Criteria of 3 pages
+
 - Login or create account page
 - Homepage/dashboard/timeline
 - Interactive page where we could interact (like a post with comment threads etc...)
 
-To-Do:
-- [ ] Authentication/Context
-    - [ ] Token/ID
-    - [ ] Unique Routes for each user
-- [ ] Proper Theming
-    - [ ] Theme Switcher
-- [ ] Forms w/ Validation
-- [ ] UI design of all pages
-    - [x] Login (initial)
-    - [ ] Signup
-    - [ ] Dashboard
-    - [ ] Home
-- [ ] Express Backend
-    - [ ] Database Connection
-    - [ ] Database Functions
-- [ ] Database Setup
-    - [ ] Database Schema
-- [ ] Testing
+## To-Do
 
-Bugs:
+- [x] Authentication/Context
+- [x] UI design of all pages
+  - [x] Login (initial)
+  - [x] Home
+  - [x] Profile
+- [ ] URL Params
+  - [ ] User
+  - [ ] Posts
+  - [ ] Comments
+- [x] Database Setup
+  - [x] Database Schema
+- [x] Testing
+- [ ] Post Interactions
+  - [ ] Comments
+  - [ ] Likes
+- [ ] Notifications
+
+## Bugs
+
 - [ ] Fix overflow issues
+- [ ] Redundant Reads of Firebase Firestore
 
- App Flow
----
+## App Flow
+
 Sequence of Pages starting from Login
+
 ```mermaid
 graph LR;
     Login-->Home;
-    Home-->Dashboard;
+    Home-->Announcements;
+    Home-->Pages;
+    Home-->FYP;
+    FYP-->Profile;
+    Announcements-->Profile;
+    Pages-->Profile;
 ```
 
-Sequence of Pages starting from SignUp
-```mermaid
-graph LR;
-    SignUp-->Login;
-```
+## Usage
 
-Page Descriptions
----
-#### Login
----
->___INSERT SAMPLE DESIGN___
+1. Clone repository using `git clone https://github.com/jrsnleones/app-dev-duo1.git && cd app-dev-duo1` 
+2. Install required modules using `npm install` or `yarn install`
+3. Start web server using `yarn dev` or `npm run dev`
 
-A page that asks user inputs of the following info;
-- Email
-- Password
+To lessen hassle, .env file was pushed with its contents intact. Normally, this would be placed in GitHub Secrets and used using GitHub Actions.
 
-__Related Files__
-- LoginView.jsx
-- LoginLayout.jsx
+No need to change .env variables so that there would no longer be a need to create a Firebase project.
 
----
-#### SignUp
->___INSERT SAMPLE DESIGN___
-
-A page that asks user inputs of the following info;
-- Email
-- Username
-- Password
-- Birthdate
-- Profile Picture
-
-__Related Files__
-- SignUpView.jsx
-- SignUpLayout.jsx
-
----
-#### Home
->___INSERT SAMPLE DESIGN___
-
-Similar to a For You Page. It houses all user inputted data in a [twitter](www.twitter.com) or [reddit](www.reddit.com) format.
-
-__Related Files__
-- HomeView.jsx
-- HomeLayout.jsx
-
----
-#### Dashboard
->___INSERT SAMPLE DESIGN___
-
-A profile page where users can see their own inputted data.
-
-__Related Files__
-- DashboardView.jsx
-- DashboardLayout.jsx
-
------
 
 > ALL INPUTTED ARE TENTATIVE EXCEPT FOR THE CRITERIA

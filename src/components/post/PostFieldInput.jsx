@@ -17,29 +17,36 @@ export default function PostFieldInput() {
     const [file, setFile] = useState(null);
     const [imgURL, setImgURL] = useState(null);
 
-    const uploadImage = async () => {
-        if(file == null) return;
-        const imageRef = ref(storage, `images/${file.name + v4()}`);
-
-        uploadBytes(imageRef, file).then((snapshot) => {
-            getDownloadURL(snapshot.ref).then((url) => {
-                setImgURL(url);
-            })
-        })
-    }
-
-    const handleClick = () => {
-        uploadImage().then(() => {
+    const uploadImage = () => {
+        if(file == null) {
             addPost({
                 photoURL: user.photoURL,
                 displayName: user.displayName,
                 chirper_uid: user.uid,
                 content: val,
-                image: imgURL, 
+                image: null, 
                 createdAt: new Date(),
             })
-        });
+        }
+        const imageRef = ref(storage, `images/${file.name + v4()}`);
 
+        uploadBytes(imageRef, file).then((snapshot) => {
+            getDownloadURL(snapshot.ref).then((url) => {
+                setImgURL(url);
+                addPost({
+                    photoURL: user.photoURL,
+                    displayName: user.displayName,
+                    chirper_uid: user.uid,
+                    content: val,
+                    image: imgURL, 
+                    createdAt: new Date(),
+                })
+            })
+        })
+    }
+
+    const handleClick = () => {
+        uploadImage()
         console.log(imgURL);
     }
 
