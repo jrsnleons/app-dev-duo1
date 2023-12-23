@@ -1,25 +1,14 @@
 import logo from '../../assets/logo.svg'
 import StyledSideBarButton from './SideBarButton.styled'
-import {FaHouse, FaHeart, FaBars} from 'react-icons/fa6';
+import {FaHouse, FaHeart, FaArrowRightFromBracket} from 'react-icons/fa6';
 import {IoPerson} from 'react-icons/io5';
 import { UserAuth } from '../../utils/contexts/AuthContext';
-import { useState } from 'react';
 
 export default function SideBar() {
   const {logOut} = UserAuth();
-  const [isVisible, setVisible] = useState(false);
-  isVisible;
 
   const handleLogoutClick = () => {
     logOut();
-  }
-
-  const handleMouseEnter = () => {
-    setVisible(true);
-  }
-
-  const handleMouseLeave = () => {
-    setVisible(false);
   }
 
   return (
@@ -36,16 +25,16 @@ export default function SideBar() {
         <StyledSideBarButton to={"/home"}>
           <FaHouse size={30}/>
         </StyledSideBarButton>
-        <StyledSideBarButton>
+        <StyledSideBarButton to={"/notifications"}>
             <FaHeart size={30}/>
         </StyledSideBarButton>
-        <StyledSideBarButton>
+        <StyledSideBarButton to={"/profile"}>
             <IoPerson size={30}/>
         </StyledSideBarButton>
       </div>
       <div className='pb-1 justify-center items-center flex'>
-        <StyledSideBarButton onClick={handleLogoutClick} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            <FaBars size={30}/>
+        <StyledSideBarButton onClick={handleLogoutClick}>
+            <FaArrowRightFromBracket size={30}/>
         </StyledSideBarButton>
       </div>
     </div>
