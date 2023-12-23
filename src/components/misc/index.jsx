@@ -5,3 +5,4 @@ export {default as Logo} from './Logo';
 export {default as Avatar} from './Avatar';
 export {default as StyledSearchBar} from './Search.styled';
 export {default as StyledEditProfileButton} from './ProfileSettingsButton.styled';
+export {default as StyledImageInput} from './ImageInput.styled';

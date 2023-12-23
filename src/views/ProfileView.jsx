@@ -1,10 +1,26 @@
 import { Avatar } from "../components/misc";
 import { ProfileLayout } from "../layouts";
 import { UserAuth } from "../utils/contexts";
-import {StyledEditProfileButton} from '../components/misc';
+import {useDatabase} from '../utils/hooks';
+import { useEffect, useState } from "react";
+import { Post } from "../components/post";
 
 export default function ProfileView() {
+  const [data, setData] = useState([]);
   const {user} = UserAuth();
+  const {getAllDataWhere} = useDatabase();
+
+  useEffect(() => {
+    async function fetch_data(){
+      const data = await getAllDataWhere('posts', 'chirper_uid', '==', user.uid);
+      setData(data);
+    }
+
+    fetch_data();
+  }, [getAllDataWhere, user]);
+
+
+
   return (
     <ProfileLayout>
       <div className="flex flex-col">
@@ -15,17 +31,16 @@ export default function ProfileView() {
           </div>
           <Avatar src={user.photoURL} size={70} className=""/>
         </div>
-        <div className="mt-8">
-          Your Bio is shown to the World 🌍
-        </div>
-        <div className="mt-6">
-          <StyledEditProfileButton>
-            Edit Profile
-          </StyledEditProfileButton>
-        </div>
         <hr className="h-px mt-6 mb-4 bg-gray-700 opacity-30 border-0"></hr>
         <div className="">
-          <span className="font-bold pl-2 opacity-80">Chirps</span>
+          <span className="font-medium text-2xl pl-2 opacity-80">Chirps</span>
+        </div>
+        <div className="pt-6 flex grow flex-col overflow-scroll">
+          {
+            data.map((item) => {
+                return (<Post key={item} name={item.displayName} handle={item.chirper_uid} content={item.content} profPicURL={item.photoURL} image={item.image}/>);
+            })
+          }
         </div>
       </div>
     </ProfileLayout>

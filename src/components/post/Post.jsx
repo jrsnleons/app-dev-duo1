@@ -7,7 +7,9 @@ export default function Post({name,content,profPicURL,image=null}) {
     return (
             <div className="pb-6 p-0">
                 <div className="flex flex-row w-full">
-                    <Avatar src={profPicURL} />
+                    <div className="min-w-fit h-full">
+                        <Avatar size={46} src={profPicURL} />
+                    </div>
                     <div>
                         <div className="flex flex-col pl-3">
                             <span className="text-md pb-px">

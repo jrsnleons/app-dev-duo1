@@ -6,20 +6,30 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import { auth } from "../database";
+import { collection, doc, setDoc} from "firebase/firestore";
+import { auth,db } from "../database";
 
 const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
-  const [isNew, setIsNew] = useState(true);
 
   const googleSignIn = async () => {
     try {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
       const {isNewUser} = getAdditionalUserInfo(result);
-      setIsNew(isNewUser);
+      const data = {
+          displayName: result.user.displayName,
+          photoURL: result.user.photoURL,
+          uid: result.user.uid,
+          handle: "@" + result.user.uid,
+        }
+      if(isNewUser){
+        const collRef = collection(db, 'users');
+        const docRef = doc(collRef, result.user.uid);
+        await setDoc(docRef, data);
+      }
     } catch (err){
       console.log(err);
     }
@@ -30,7 +40,7 @@ export const AuthContextProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth,(currentUser) => {
       setUser(currentUser);
     });
     return () => {
@@ -39,7 +49,7 @@ export const AuthContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ googleSignIn, user, logOut, isNew }}>
+    <AuthContext.Provider value={{ googleSignIn, user, logOut }}>
       {children}
     </AuthContext.Provider>
   );

@@ -1,1 +1,1 @@
-export { app, db, auth } from "./connectDB";
+export { app, db, auth, storage } from "./connectDB";
